@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"></link>
 </head>
 <body>
+<div>
 	<h1>Contacts</h1>
 	<a  href="ajouter" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>Ajouter un Contact</a>
 	<table class="table table-bordered">
@@ -20,9 +21,10 @@
 			<tr th:each="e : ${contacts}">
 				<td th:text="${e.getNom()}"/>
 				<td th:text="${e.getPnom()}"/>
-				<td><a href="modifier?${e.getID()}" class="btn btn-info">Modifier</a> <a  href="supprimer?${e.getID()}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>Supprimer</a></td>
+				<td><a th:href="${e.getModif()}" class="btn btn-info">Modifier</a> <a th:href="${e.getSuppr()}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>Supprimer</a></td>
 			</tr>
 		</tbody>
 	</table>
+</div>
 </body>
 </html>

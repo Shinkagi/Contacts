@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des contacts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"></link>
+</head>
+<body>
+	<h1>Contact</h1>
+	<div>
+	<form class="form form-inline" method="post" th:object="${contact}" th:action="@{/save}">
+		<label>Nom</label><input class="form-control" type="text" th:field="*{nom}" th:value="${contact.getNom()}"></input>
+		<label>Prenom</label><input class="form-control" type="text" th:field="*{pnom}" th:value="${contact.getPnom()}"></input>
+		<input type="hidden" th:field="*{id}" th:value="${contact.getId()}"></input>
+		<button class="btn btn-success" type="submit">Enregistrer</button>
+	</form>
+	</div>
+</body>
+</html>
