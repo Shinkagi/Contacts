@@ -3,18 +3,20 @@
 <head>
     <title>Liste des contacts</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"></link>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"></link>
 </head>
 <body>
 <div>
 	<h1>Contacts</h1>
 	<a  href="ajouter" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>Ajouter un Contact</a>
+	<a  href="xml?action=listContacts" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>Exporter en XML</a>
 	<table class="table table-bordered">
 		<thead>
 			<tr>
 				<th>Nom</th>
 				<th>Prenom</th>
 				<th>Options</th>
+				<th>Xml</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -22,6 +24,7 @@
 				<td th:text="${e.getNom()}"/>
 				<td th:text="${e.getPnom()}"/>
 				<td><a th:href="${e.getModif()}" class="btn btn-info">Modifier</a> <a th:href="${e.getSuppr()}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>Supprimer</a></td>
+				<td><a th:href="${e.getExprt()}" class="btn btn-info">Exporter</a> <a th:href="${e.getSupprX()}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>Supprimer</a></td>
 			</tr>
 		</tbody>
 	</table>

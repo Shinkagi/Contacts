@@ -1,12 +1,11 @@
 package app;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,6 +44,24 @@ public class ContactController {
     @GetMapping("/supprimer/{id}")
     public String supprimer(@PathVariable("id") Long id) {
     	repository.delete(id);
+        return "redirect:/contacts";
+    }
+    
+    @GetMapping("/xml")
+    public String xml(@RequestParam(name="action", required=true) String action, @RequestParam(name="id", required=false, defaultValue="") String id, HttpServletResponse response) {
+    	if(action.equals("listContatcts")) {
+    		
+    		response.addHeader("Content-Disposition", "attachment; filename=list.xml");
+    	}if(action.equals("getContact")) {
+    		if(!id.equals("")) {
+
+        		response.addHeader("Content-Disposition", "attachment; filename=get.xml");
+    		}
+    	}if(action.equals("delContact")) {
+    		if(!id.equals("")) {
+        		response.addHeader("Content-Disposition", "attachment; filename=del.xml");
+    		}
+    	}
         return "redirect:/contacts";
     }
     

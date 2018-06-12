@@ -36,6 +36,7 @@ dependencies{
 	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
 	compile("org.springframework.boot:spring-boot-devtools")
 	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+	compile("org.jdom:jdom2:2.0.6")
 	compile("com.h2database:h2")
 	testCompile("junit:junit")
 }

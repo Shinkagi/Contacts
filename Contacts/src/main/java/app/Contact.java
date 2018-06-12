@@ -58,6 +58,12 @@ public class Contact {
     public String getSuppr() {
     	return "/supprimer/"+this.id;
     }
+    public String getExprt() {
+    	return "/xml?action=getContact&id="+this.id;
+    }
+    public String getSupprX() {
+    	return "/xml?action=delContact&id="+this.id;
+    }
 
     @Override
     public String toString() {
